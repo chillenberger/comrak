@@ -22,7 +22,7 @@ Specify it as a requirement in `Cargo.toml`:
 
 ``` toml
 [dependencies]
-comrak = "0.16"
+comrak = "0.18"
 ```
 
 Comrak supports Rust stable.
@@ -66,6 +66,9 @@ Options:
       --github-pre-lang
           Use GitHub-style <pre lang> for code blocks
 
+      --full-info-string
+          Enable full info strings for code blocks
+
       --gfm
           Enable GitHub-flavored markdown extensions: strikethrough, tagfilter, table, autolink, and
           tasklist. Also enables --github-pre-lang
@@ -97,7 +100,7 @@ Options:
           Specify output format
           
           [default: html]
-          [possible values: html, commonmark]
+          [possible values: html, xml, commonmark]
 
   -o, --output <FILE>
           Write output to FILE instead of stdout
@@ -119,10 +122,13 @@ Options:
           [default: base16-ocean.dark]
 
       --list-style <LIST_STYLE>
-          Specify bullet character for lists (-, +, *) in CommonMark ouput
+          Specify bullet character for lists (-, +, *) in CommonMark output
           
           [default: dash]
           [possible values: dash, plus, star]
+
+      --sourcepos
+          Include source position attribute in HTML and XML output
 
   -h, --help
           Print help information (use `-h` for a summary)
@@ -251,10 +257,8 @@ depending on your use-case. Here are some other projects to consider:
 
 - [Raph Levien](https://github.com/raphlinus)'s [`pulldown-cmark`](https://github.com/google/pulldown-cmark). It's
   very fast, uses a novel parsing algorithm, and doesn't construct an AST (but you can use it to make one if you
-  want). `cargo doc` uses this, as do many other projects in the ecosystem.
-- [Ben Navetta](https://github.com/bnavetta)'s [`rcmark`](https://github.com/bnavetta/rcmark) is a set of bindings to
-  `libcmark`. It hasn't been updated in a while, though there's an [open pull
-  request](https://github.com/bnavetta/rcmark/pull/2).
+  want). `cargo doc` uses this, as do many other projects in the ecosystem.  It appears semi-maintained as of March 2023.
+- [markdown-rs](https://github.com/wooorm/markdown-rs) (1.x) looks worth watching.
 - Know of another library? Please open a PR to add it\!
 
 As far as I know, Comrak is the only library to implement all of the [GitHub Flavored Markdown
@@ -275,8 +279,11 @@ Thank you to comrak's many contributors for PRs and issues opened\!
 
 ### Financial Contributors
 
-Become a financial contributor and help us sustain our community.
-\[[Contribute](https://opencollective.com/comrak/contribute)\]
+Become a financial contributor and help sustain Comrak's development.  I'm
+self-employed --- open-source software relies on the collective.
+
+- [GitHub Sponsors](https://github.com/sponsors/kivikakk)
+- [Open Collective](https://opencollective.com/comrak/contribute)
 
 #### Individuals
 
@@ -300,11 +307,11 @@ Support this project with your organization. Your logo will show up here with a 
 
 ## Contact
 
-Ashe Connor \<ashe kivikakk ee\>
+Asherah Connor \<ashe kivikakk ee\>
 
 ## Legal
 
-Copyright (c) 2017–2021, Ashe Connor. Licensed under the [2-Clause BSD
+Copyright (c) 2017–2023, Asherah Connor. Licensed under the [2-Clause BSD
 License](https://opensource.org/licenses/BSD-2-Clause).
 
 `cmark` itself is is copyright (c) 2014, John MacFarlane.
