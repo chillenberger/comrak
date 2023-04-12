@@ -854,7 +854,7 @@ impl<'a, 'o, 'c> Parser<'a, 'o, 'c> {
                 container.data.borrow_mut().value = NodeValue::Heading(NodeHeading {
                     level,
                     setext: false,
-                    id: None,
+                    id: Some(21),
                 });
             } else if !indented
                 && unwrap_into(
