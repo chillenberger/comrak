@@ -316,6 +316,9 @@ pub struct NodeHeading {
 
     /// Whether the heading is setext (if not, ATX).
     pub setext: bool,
+
+    /// Id of parsed heading. 
+    pub id: Option<u64>,
 }
 
 /// The metadata of an included HTML block.

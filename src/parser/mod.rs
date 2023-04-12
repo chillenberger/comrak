@@ -989,6 +989,7 @@ impl<'a, 'o, 'c> Parser<'a, 'o, 'c> {
                 container_ast.value = NodeValue::Heading(NodeHeading {
                     level,
                     setext: false,
+                    id: None,
                 });
                 container_ast.internal_offset = matched;
             } else if !indented
@@ -1051,6 +1052,7 @@ impl<'a, 'o, 'c> Parser<'a, 'o, 'c> {
                             scanners::SetextChar::Hyphen => 2,
                         },
                         setext: true,
+                        id: None,
                     });
                     let adv = line.len() - 1 - self.offset;
                     self.advance_offset(line, adv, false);
